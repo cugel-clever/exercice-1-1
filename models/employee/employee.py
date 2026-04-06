@@ -3,4 +3,14 @@ class Employee:
         pass
 
     def show_info(self):
-        pass
+        return "\nEmployee : "
+    
+    def __str__(self):
+        return(
+            "==========Employee=========="
+            f"{self.show_info()} "
+            f"{self.id_employee}\n"
+            f"Name : {self.name}\n"
+            f"Role : {self.role}\n"
+            "============================="
+        )

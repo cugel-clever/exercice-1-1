@@ -22,22 +22,27 @@ p4 = Product("P04", "Paintbrush", 5.99, 6)
 store_service.add_product(p4)
 p5 = Product("P05", "Seven Inch Nails (pkg-100)", 7.99, 10)
 store_service.add_product(p5)
+lst_product_main = [p1.id_product,p2.id_product,p3.id_product,p4.id_product,p5.id_product]
+print(f"a) Ajouter produit(s) OK : \n{lst_product_main}\n")
 
 # b) Ajouter un client
-print(f"\nb) Ajouter un client :")
+print(f"\nb) Ajouter client(s) :")
 c1 = Customer("C01", "Burger", "George", "thisburger@coco.com")
 store_service.add_customer(c1)
 c2 = Customer("C02", "King", "Paul", "pking@tortoro.com")
 store_service.add_customer(c2)
 c3 = Customer("C03", "Bake", "Shaken", "sbake@foodoo.com")
 store_service.add_customer(c3)
+lst_customer_main = [c1.id_customer,c2.id_customer,c3.id_customer]
+print(f"b) Ajouter client(s) OK : \n{lst_customer_main}\n")
 
 # c) Afficher les produits disponibles
-# Se fera à partir du controller... à retirer
-print(f"\nc) Afficher les produits disponibles :")
-show_info(p1)
-print(f"\nc) Afficher les clients inscrits :")
-show_info(c1)
+store_service.show_products()
+print("\n")
+
+# c) Afficher les clients inscrits
+store_service.show_customers()
+print("\n")
 
 # d) Gérer le stock (ajout/suppression)
 print(f"\nd) Gérer le stock (ajout/suppression) :")
@@ -48,4 +53,5 @@ p1.remove_stock(5)
 print(p1)
 
 # e) Créer une commande
+
 

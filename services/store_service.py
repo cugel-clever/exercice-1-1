@@ -11,11 +11,18 @@ class StoreService:
     def add_customer(self, customer):
         self.lst_customers.append(customer)
 
-    def pass_order(self, order):
-        pass
+    def add_order(self, order):
+        self.lst_orders.append(order)
 
-    def show_products(self, product):
-        pass
+    def show_products(self):
+        print(f"c) Afficher les produits disponibles : {len(self.lst_products)}")
+        for prod_item in self.lst_products:
+            print(f"{prod_item}")
 
-    def show_orders(self, order):
+    def show_customers(self):
+        print(f"c) Afficher les clients inscrits : {len(self.lst_customers)}")
+        for cust_item in self.lst_customers:
+            print(f"{cust_item}")
+
+    def show_orders(self):
         pass
