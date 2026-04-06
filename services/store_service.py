@@ -1,3 +1,4 @@
+
 class StoreService:
     def __init__(self, name):
         self.lst_products = []
@@ -5,10 +6,10 @@ class StoreService:
         self.lst_orders = []
     
     def add_product(self, product):
-        pass
+        self.lst_products.append(product)
 
     def add_customer(self, customer):
-        pass
+        self.lst_customers.append(customer)
 
     def pass_order(self, order):
         pass
