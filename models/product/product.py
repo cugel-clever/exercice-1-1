@@ -6,7 +6,7 @@ class Product:
         self.qty_stock = qty_stock
 
     def show_info(self):
-        return "\nProduct : "
+        return "Product "
 
     def add_stock(self, qty):
         self.qty_stock += qty
@@ -19,8 +19,8 @@ class Product:
 
     def __str__(self):
         return(
-            "==========Product=========="
-            f"{self.show_info()} "
+            f"==========Product==========\n"
+            #f"{self.show_info()}"
             f"{self.id_product}\n"
             f"Name : {self.name}\n"
             f"Price : {self.price}\n"

@@ -4,6 +4,7 @@ class StoreService:
         self.lst_products = []
         self.lst_customers = []
         self.lst_orders = []
+        self.lst_orderitems = []
     
     def add_product(self, product):
         self.lst_products.append(product)
@@ -13,6 +14,9 @@ class StoreService:
 
     def add_order(self, order):
         self.lst_orders.append(order)
+
+    def add_orderitem(self, orderitem):
+        self.lst_orderitems.append(orderitem)
 
     def show_products(self):
         print(f"c) Afficher les produits disponibles : {len(self.lst_products)}")
@@ -25,4 +29,12 @@ class StoreService:
             print(f"{cust_item}")
 
     def show_orders(self):
-        pass
+        print(f"Afficher les commandes : {len(self.lst_orders)}")
+        for order_index in self.lst_orders:
+            print(f"{order_index}")
+
+    def show_orderitems(self):
+        print(f"Afficher les détails de la commande : {len(self.lst_orderitems)}")
+        for orderitem_index in self.lst_orderitems:
+            print(f"{orderitem_index}")
+

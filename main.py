@@ -1,5 +1,7 @@
 from models.product.product import Product
 from models.customer.customer import Customer
+from models.order.order import Order
+from models.order.orderitem import OrderItem
 
 from services.store_service import StoreService
 from controllers.controller import Controller
@@ -53,5 +55,27 @@ p1.remove_stock(5)
 print(p1)
 
 # e) Créer une commande
+o1 = Order("O01", c1)
+store_service.add_order(o1)
+
+o2 = Order("O02", c3)
+store_service.add_order(o2)
+
+print(f"\ne) Créer commande(s) :")
+lst_order_main = [o1.id_order, o2.id_order]
+print(f"e) Créer commande(s) OK : \n{lst_order_main}\n")
+
+# f) Ajouter plusieurs produits à une commande
+oi1 = OrderItem(o1, p1, 1)
+store_service.add_orderitem(oi1)
+oi2 = OrderItem(o1, p2, 2)
+store_service.add_orderitem(oi2)
+
+lst_order_main = [oi1.order.id_order]
+print(f"f) Ajouter produit(s) à une commande OK  \n{lst_order_main}\n")
+#print(f"\n{oi1}")
+store_service.show_orderitems()
 
 
+print(f"\nh) Afficher toutes les commandes : \n")
+store_service.show_orders()
