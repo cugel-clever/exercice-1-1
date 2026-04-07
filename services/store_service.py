@@ -38,3 +38,20 @@ class StoreService:
         for orderitem_index in self.lst_orderitems:
             print(f"{orderitem_index}")
 
+    #nouveau code en test
+    def calculate_order_total(self, id_order, id_order_name):
+        i = 0 #Index to iterate through the list (VERY inefficient...)
+        total = 0
+        print(f"Calculer le total de la commande : {id_order_name}")
+
+        while i < len(self.lst_orderitems):
+            if id_order_name.upper() == self.lst_orderitems[i].order.id_order:
+                print("Ça marche!!!")
+                total += (self.lst_orderitems[i].product.price * self.lst_orderitems[i].qty)
+                i += 1
+            else:
+                i += 1
+
+        #for orderitem_index in self.lst_orderitems:
+            #if self.lst_orderitems[orderitem_index].order.customer.id_order == id_order:
+

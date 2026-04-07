@@ -66,16 +66,18 @@ lst_order_main = [o1.id_order, o2.id_order]
 print(f"e) Créer commande(s) OK : \n{lst_order_main}\n")
 
 # f) Ajouter plusieurs produits à une commande
-oi1 = OrderItem(o1, p1, 1)
-store_service.add_orderitem(oi1)
-oi2 = OrderItem(o1, p2, 2)
-store_service.add_orderitem(oi2)
+OI01 = OrderItem(o1, p1, 1)
+store_service.add_orderitem(OI01)
+OI02 = OrderItem(o1, p2, 2)
+store_service.add_orderitem(OI02)
 
-lst_order_main = [oi1.order.id_order]
+lst_order_main = ["OI01","OI02"]
 print(f"f) Ajouter produit(s) à une commande OK  \n{lst_order_main}\n")
 #print(f"\n{oi1}")
 store_service.show_orderitems()
 
+print(f"\ng) Calculer le total d'une commande : \n")
+store_service.calculate_order_total(o1,"O01")
 
 print(f"\nh) Afficher toutes les commandes : \n")
 store_service.show_orders()
