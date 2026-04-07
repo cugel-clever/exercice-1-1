@@ -90,3 +90,6 @@ store_service.show_orders()
 # i) Vérifier la disponibilité du stock, par exemple le produit "P01"
 print(f"\ni) Vérifier la disponibilité du stock : \n")
 store_service.show_products("P01")
+
+#Valider avec un produit inexistant
+store_service.show_products("P00")

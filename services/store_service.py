@@ -21,6 +21,7 @@ class StoreService:
     def show_products(self, product):
         i = 0 #Index to iterate through the list (VERY inefficient...)
         j = len(self.lst_products)
+        produit_existant = False
         while i < len(self.lst_products):
             if product.upper() == "TOUS":
                 print(f"Produits disponibles : {len(self.lst_products)}")
@@ -32,10 +33,12 @@ class StoreService:
                     if product.upper() == self.lst_products[i].id_product:
                         print(f"{prod_item}\n")
                         i = j #To get out ASAP of the while!
+                        produit_existant = True
                         break
-            else: #idéalement, we should check for errors, but time is of the essence!
-                print(f"Le produit {product} ne fait pas partie de l'inventaire actuel. Réessayez.")
-                i = len(self.lst_products) #To get out ASAP of the while!
+                #Else implicite: idéalement, we should check for errors, but time is of the essence!
+                if not produit_existant:
+                    print(f"Le produit {product} ne fait pas partie de l'inventaire actuel. Réessayez.")
+                    i = j #To get out ASAP of the while!
 
     def show_customers(self):
         print(f"Clients inscrits : {len(self.lst_customers)}")
