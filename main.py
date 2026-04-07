@@ -77,7 +77,9 @@ print(f"f) Ajouter produit(s) à une commande OK  \n{lst_order_main}\n")
 store_service.show_orderitems()
 
 print(f"\ng) Calculer le total d'une commande : \n")
-store_service.calculate_order_total(o1,"O01")
+total = store_service.calculate_order_total(o1,"O01")
+
+print(f"{total}")
 
 print(f"\nh) Afficher toutes les commandes : \n")
 store_service.show_orders()

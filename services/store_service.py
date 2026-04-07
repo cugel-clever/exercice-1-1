@@ -46,12 +46,9 @@ class StoreService:
 
         while i < len(self.lst_orderitems):
             if id_order_name.upper() == self.lst_orderitems[i].order.id_order:
-                print("Ça marche!!!")
+                #print("Ça marche!!!")
                 total += (self.lst_orderitems[i].product.price * self.lst_orderitems[i].qty)
                 i += 1
             else:
                 i += 1
-
-        #for orderitem_index in self.lst_orderitems:
-            #if self.lst_orderitems[orderitem_index].order.customer.id_order == id_order:
-
+        return total
