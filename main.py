@@ -39,7 +39,8 @@ lst_customer_main = [c1.id_customer,c2.id_customer,c3.id_customer]
 print(f"b) Ajouter client(s) OK : \n{lst_customer_main}\n")
 
 # c) Afficher les produits disponibles
-store_service.show_products()
+print(f"\nc) Afficher les produits disponibles :")
+store_service.show_products("TOUS")
 print("\n")
 
 # c) Afficher les clients inscrits
@@ -76,10 +77,16 @@ print(f"f) Ajouter produit(s) à une commande OK  \n{lst_order_main}\n")
 #print(f"\n{oi1}")
 store_service.show_orderitems()
 
+# g) Calculer le total d'une commande
 print(f"\ng) Calculer le total d'une commande : \n")
 total = store_service.calculate_order_total(o1,"O01")
 
 print(f"{total}")
 
+# h) Afficher toutes les commandes
 print(f"\nh) Afficher toutes les commandes : \n")
 store_service.show_orders()
+
+# i) Vérifier la disponibilité du stock, par exemple le produit "P01"
+print(f"\ni) Vérifier la disponibilité du stock : \n")
+store_service.show_products("P01")

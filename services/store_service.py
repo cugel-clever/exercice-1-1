@@ -18,13 +18,27 @@ class StoreService:
     def add_orderitem(self, orderitem):
         self.lst_orderitems.append(orderitem)
 
-    def show_products(self):
-        print(f"c) Afficher les produits disponibles : {len(self.lst_products)}")
-        for prod_item in self.lst_products:
-            print(f"{prod_item}")
+    def show_products(self, product):
+        i = 0 #Index to iterate through the list (VERY inefficient...)
+        j = len(self.lst_products)
+        while i < len(self.lst_products):
+            if product.upper() == "TOUS":
+                print(f"Produits disponibles : {len(self.lst_products)}")
+                for prod_item in self.lst_products:
+                    print(f"{prod_item}")
+                i = j #To get out ASAP of the while!
+            elif product is not None:
+                for prod_item in self.lst_products:
+                    if product.upper() == self.lst_products[i].id_product:
+                        print(f"{prod_item}\n")
+                        i = j #To get out ASAP of the while!
+                        break
+            else: #idéalement, we should check for errors, but time is of the essence!
+                print(f"Le produit {product} ne fait pas partie de l'inventaire actuel. Réessayez.")
+                i = len(self.lst_products) #To get out ASAP of the while!
 
     def show_customers(self):
-        print(f"c) Afficher les clients inscrits : {len(self.lst_customers)}")
+        print(f"Clients inscrits : {len(self.lst_customers)}")
         for cust_item in self.lst_customers:
             print(f"{cust_item}")
 
@@ -38,7 +52,6 @@ class StoreService:
         for orderitem_index in self.lst_orderitems:
             print(f"{orderitem_index}")
 
-    #nouveau code en test
     def calculate_order_total(self, id_order, id_order_name):
         i = 0 #Index to iterate through the list (VERY inefficient...)
         total = 0
@@ -46,7 +59,6 @@ class StoreService:
 
         while i < len(self.lst_orderitems):
             if id_order_name.upper() == self.lst_orderitems[i].order.id_order:
-                #print("Ça marche!!!")
                 total += (self.lst_orderitems[i].product.price * self.lst_orderitems[i].qty)
                 i += 1
             else:
